@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    background: "linear-gradient(90deg, #FE6B8B 30%, #FF8E53 90%)",
+    background: "linear-gradient(90deg, #AEF8FC 30%, #5CE1FE 90%)",
     width: "auto",
     length: "auto",
     fontWeight: 600,
