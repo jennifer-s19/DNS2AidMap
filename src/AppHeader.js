@@ -9,6 +9,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 import "./AppHeader";
 import HomePage from "./HomePage";
+import FindAid from "./FindAid";
 
 //import Map from "./Map";
 //import About from "./About";
@@ -84,8 +85,11 @@ export default function AppHeader() {
             </Typography>
           </Link>
           <div className={classes.buttons}>
-            <Link to="/map" style={{ textDecoration: "none", color: "#FFF" }}>
-              <Button color="inherit">Map</Button>
+            <Link
+              to="/findAid"
+              style={{ textDecoration: "none", color: "#FFF" }}
+            >
+              <Button color="inherit">Find Aid</Button>
             </Link>
             <Link to="/about" style={{ textDecoration: "none", color: "#FFF" }}>
               <Button color="inherit">About</Button>
@@ -104,10 +108,10 @@ export default function AppHeader() {
           <Route exact path="/">
             <HomePage />
           </Route>
-          {/* <Route exact path="/map">
-            <Map />
+          <Route exact path="/findAid">
+            <FindAid />
           </Route>
-          <Route path="/about">
+          {/* <Route path="/about">
             <About />
           </Route>
           <Route path="/userSubmission">

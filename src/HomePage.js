@@ -3,10 +3,11 @@ import "./AppHeader";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
+import FindAid from "./FindAid";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    background: "linear-gradient(90deg, #FE6B8B 30%, #FF8E53 90%)",
+    background: "linear-gradient(90deg, #AEF8FC 30%, #5CE1FE 90%)",
     width: "auto",
     length: "auto",
     fontWeight: 600,
@@ -51,14 +52,14 @@ export default function Home() {
         <h1 className={classes.welcome}>Welcome to Aid Map!</h1>
         <h2>Follow the map to find your aid</h2>
         <br></br>
-        <Link to="/map" style={{ textDecoration: "none" }}>
+        <Link to="/findAid" style={{ textDecoration: "none" }}>
           <Button
             className={classes.linkButton}
             size="large"
             variant="contained"
             color="primary"
           >
-            Map
+            Find Aid
           </Button>
         </Link>
       </div>
@@ -112,11 +113,11 @@ export default function Home() {
         <br></br>
       </div>
       <div>
-        {/* <Switch>
-          <Route exact path="/map">
-            <Map />
+        <Switch>
+          <Route exact path="/findAid">
+            <FindAid />
           </Route>
-        </Switch> */}
+        </Switch>
       </div>
     </div>
   );
