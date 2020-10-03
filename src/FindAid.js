@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -10,36 +10,31 @@ import InputLabel from "@material-ui/core/InputLabel";
 
 const useStyles = makeStyles((theme) => ({
   findAidContainer: {
-    background: "linear-gradient(90deg, #AEF8FC 30%, #5CE1FE 90%)",
+    background: "linear-gradient(360deg, #AEF8FC 30%, #5CE1FE 90%)",
     width: "auto",
     height: "100vH",
   },
   zipcodeField: {},
   zipcode: {},
-  distanceField: {},
-  aidTypeField: {},
   paper: {
     margin: 50,
     height: "auto",
-    background: "#12FA8D",
+    background: "#FFF",
+    //"#14D3FB"
   },
   formControl: {
     minWidth: 120,
   },
+  doneButton: {
+    backgroundColor: "#336EFF",
+  },
 }));
 
-export default function Map() {
+export default function FindAid() {
   const classes = useStyles();
-  const [distance, setDistance] = React.useState("");
-  const [aidType, setAidType] = React.useState("");
-
-  const handleChange = (event) => {
-    setDistance(event.target.value);
-  };
-
-  const handleClick = (event) => {
-    setAidType(event.target.value);
-  };
+  const [zipValue, setZipValue] = useState("");
+  const [aidValue, setAidValue] = useState("");
+  //need to check zipcode values
 
   return (
     <div className={classes.findAidContainer}>
@@ -55,37 +50,17 @@ export default function Map() {
             label="Ex: 12345"
             variant="outlined"
             size="small"
+            value={zipValue}
+            onChange={(e) => setZipValue(e.target.value)}
           />
         </div>
         <br></br>
         <br></br>
-        <div className={classes.distanceField}>
-          <h4>2. How far do you want to travel?</h4>
-          <FormControl variant="outlined" className={classes.formControl}>
-            <InputLabel id="demo-simple-select-outlined-label">
-              Distance
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-outlined-label"
-              id="demo-simple-select-outlined"
-              value={distance}
-              onChange={handleChange}
-              label="Distance"
-            >
-              <MenuItem value={1}>1 mile</MenuItem>
-              <MenuItem value={2}>2 miles</MenuItem>
-              <MenuItem value={5}>5 miles</MenuItem>
-              <MenuItem value={10}>10 miles</MenuItem>
-              <MenuItem value={15}>15 miles</MenuItem>
-              <MenuItem value={20}>20 miles</MenuItem>
-              <MenuItem value={25}>25 miles</MenuItem>
-            </Select>
-          </FormControl>
-        </div>
+
         <br></br>
         <br></br>
         <div className={classes.aidTypeField}>
-          <h4>3. What type of aid are you looking for?</h4>
+          <h4>2. What type of aid are you looking for?</h4>
           <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="demo-simple-select-outlined-label">
               Aid Type
@@ -93,16 +68,19 @@ export default function Map() {
             <Select
               labelId="demo-simple-select-outlined-label"
               id="demo-simple-select-outlined"
-              value={aidType}
-              onChange={handleClick}
+              value={aidValue}
+              onChange={(e) => setAidValue(e.target.value)}
               label="Aid Type"
             >
-              <MenuItem value={1}>WiFi</MenuItem>
-              <MenuItem value={2}>HotSpots</MenuItem>
-              <MenuItem value={3}>Food Banks</MenuItem>
+              <MenuItem disabled value="  ">
+                <em>Search for</em>
+              </MenuItem>
+              <MenuItem value={"WiFi"}>WiFi Hotspots</MenuItem>
+              <MenuItem value={"Food"}>Food Banks</MenuItem>
             </Select>
           </FormControl>
         </div>
+        <br></br>
         <br></br>
         <br></br>
         <Button

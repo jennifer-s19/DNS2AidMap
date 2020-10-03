@@ -7,7 +7,7 @@ import FindAid from "./FindAid";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    background: "linear-gradient(90deg, #AEF8FC 30%, #5CE1FE 90%)",
+    background: "linear-gradient(360deg, #AEF8FC 30%, #5CE1FE 90%)",
     width: "auto",
     length: "auto",
     fontWeight: 600,
@@ -67,7 +67,7 @@ export default function Home() {
         <h3 style={{ fontSize: "200%" }}>Our Mission</h3>
         <p id="mission">
           Connecting people with necessities during these virtual times. Use Aid
-          Map to find FREE local hotspots, WiFi, and food banks near you!
+          Map to find FREE local WiFi Hotspots and food banks near you!
         </p>
         <div id="facts">
           <h3 className="info" style={{ fontSize: "200%" }}>
@@ -82,9 +82,8 @@ export default function Home() {
             </p>
             <p>
               Aid Map was created as a resource and helper tool for families. It
-              connects families with nearby resources like free WiFi, free
-              hotspots, and food banks to assist them during the virtual
-              schooling era.
+              connects families with nearby resources like free WiFi hotspots
+              and food banks to assist them during the virtual schooling era.
             </p>
           </ul>
         </div>
@@ -95,7 +94,7 @@ export default function Home() {
           <ul>
             <p>
               You can support Aid Map by contributing to our data collection. If
-              you notice that a place is offering free WiFi or hotspots please
+              you notice that a place is offering free WiFi hotspots please
               input the name and address into our User Submission form. This way
               we can offer more resources to families in need.
             </p>
