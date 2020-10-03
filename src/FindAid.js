@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
     margin: 50,
     height: "auto",
     background: "#FFF",
-    //"#14D3FB"
   },
   formControl: {
     minWidth: 120,
