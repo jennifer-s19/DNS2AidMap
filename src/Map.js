@@ -1,18 +1,35 @@
 import React from "react";
 import mapboxgl from 'mapbox-gl';
 import './Map.css'
+import * as zipCodes from './zipcodes';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiamFzb25jZDMxIiwiYSI6ImNrZnNydTM3bzBwdjEyd25weWZ1eDdwNmIifQ.Wu020OyV0VPIxgxMO905Ig';
+
 
 class Map extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props.zipCode)
+        console.log(props)
+        
         this.state = {
           lng: -118,
           lat: 34,
-          zoom: 2
+          zoom: 13
+          
         };
+        this.getCoords(props.zipCode)
       }
+
+    getCoords(zipCode) {
+        //console.log(zipCodes)
+        const lats = zipCodes.zipCodes.filter((item) => item.Zip == zipCode)[0];
+        this.state.lng = lats.Longitude
+        this.state.lat = lats.Latitude
+        console.log(this.state.lng)
+        console.log(this.state.lat)
+
+    }
     componentDidMount() {
     var map = new mapboxgl.Map({
         container: this.mapContainer,
@@ -21,6 +38,7 @@ class Map extends React.Component {
         zoom: this.state.zoom
     });
     map.on('click', function(e) {
+
       var features = map.queryRenderedFeatures(e.point, {
         layers: ['aidmap-v4-cafb','aidmap-v4-casb'] // replace this with the name of the layer
       });
