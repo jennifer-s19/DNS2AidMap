@@ -16,13 +16,27 @@ class Map extends React.Component {
     componentDidMount() {
     const map = new mapboxgl.Map({
         container: this.mapContainer,
-        style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/jasoncd31/ckfudam961on819nxezb4jdtt',
         center: [this.state.lng, this.state.lat],
         zoom: this.state.zoom
     });
-    var marker = new mapboxgl.Marker()
-    .setLngLat([-118, 34])
-    .addTo(map);
+    map.on('click', function(e) {
+      var features = map.queryRenderedFeatures(e.point, {
+        layers: ['aidmap-v4-cafb','aidmap-v4-casb'] // replace this with the name of the layer
+      });
+    
+      if (!features.length) {
+        return;
+      }
+    
+      var feature = features[0];
+    
+      var popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML('<h3>' + feature.properties.name +", " + feature.properties.city + '</h3><p>' + "<br>" +feature.properties.address + ', ' + feature.properties.postcode  + "</br>" + feature.properties.url + '</p>')
+        .addTo(map);
+    });
+
     }
     render() {
     return (
