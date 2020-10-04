@@ -10,8 +10,7 @@ import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 import "./AppHeader";
 import HomePage from "./HomePage";
 import FindAid from "./FindAid";
-
-//import Map from "./Map";
+import AboutUs from "./AboutUs";
 //import About from "./About";
 //import UserSubmission from "./UserSubmission";
 
@@ -111,10 +110,10 @@ export default function AppHeader() {
           <Route exact path="/findAid">
             <FindAid />
           </Route>
-          {/* <Route path="/about">
-            <About />
+          <Route exact path="/about">
+            <AboutUs />
           </Route>
-          <Route path="/userSubmission">
+          {/* <Route exact path="/userSubmission">
             <UserSubmission />
           </Route> */}
         </Switch>
