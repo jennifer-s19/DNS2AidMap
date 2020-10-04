@@ -12,6 +12,20 @@ import HomePage from "./HomePage";
 import FindAid from "./FindAid";
 import AboutUs from "./AboutUs";
 import UserSubmission from "./UserSubmission";
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import LanguageIcon from '@material-ui/icons/Language';
+
+const options = [
+  'Engligh (United States)',
+  'Spanish',
+  'Japanese',
+  'Mandarin Chinese',
+  'French',
+  'Hindi',
+  'Russian',
+  "Portuguese"
+];
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,7 +73,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function AppHeader() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const ITEM_HEIGHT = 48;
+
   const classes = useStyles();
   return (
     <Router>
@@ -70,9 +98,29 @@ export default function AppHeader() {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
+            onClick={handleClick}
           >
-            <MenuIcon />
+            <LanguageIcon />
           </IconButton>
+          <Menu
+            id="long-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={open}
+            onClose={handleClose}
+            PaperProps={{
+              style: {
+                maxHeight: ITEM_HEIGHT * 4.5,
+                width: '20ch',
+              },
+            }}
+          >
+            {options.map((option) => (
+              <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
+                {option}
+              </MenuItem>
+            ))}
+          </Menu>
           <Link
             to="/"
             className="headerLink"

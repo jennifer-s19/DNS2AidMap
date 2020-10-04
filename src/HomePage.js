@@ -41,8 +41,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 60,
   },
 }));
-
-export default function Home() {
+export default function HomePage() {
   const classes = useStyles();
   return (
     <div className={classes.title}>

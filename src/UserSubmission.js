@@ -9,6 +9,8 @@ import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import TextField from "@material-ui/core/TextField";
 import { useState } from "react";
+import Alert from '@material-ui/lab/Alert';
+
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -38,6 +40,8 @@ const useStyles = makeStyles((theme) => ({
   },
   doneButton: {
     backgroundColor: "#336EFF",
+    justifyContent: "center",
+    alignContent: "center",
   },
 }));
 
@@ -49,6 +53,14 @@ export default function Home() {
   const [zipAddressValue, setZipAddressValue] = useState("");
   const [countryValue, setCountryValue] = useState("");
   const [aidValue, setAidValue] = useState("");
+  const onSubmit = () => {
+    alert("Thank you for your submission! Please navigate back to the Home Page by clicking on the Aid Map logo in the toolbar");
+  };
+
+
+  // const myFunction = () => {
+  //   window.alert("Thank you for your submission! Please head back to the Home Page:)")
+  // }
 
   return (
     <div className={classes.title}>
@@ -140,14 +152,15 @@ export default function Home() {
             </div>
             <br></br>
             <br></br>
-            <Button
-              className={classes.doneButton}
+            <Button className={classes.doneButton}
               size="large"
               variant="contained"
               color="primary"
-            >
-              Done
-            </Button>
+              justifyContent="center"
+              onClick={onSubmit}>
+
+              Submit
+            </Button >
             <br></br>
             <br></br>
           </Paper>

@@ -13,6 +13,8 @@ const useStyles = makeStyles((theme) => ({
     background: "linear-gradient(360deg, #AEF8FC 30%, #5CE1FE 90%)",
     width: "auto",
     height: "100vH",
+    fontWeight: 600,
+    fontSize: 25,
   },
   zipcodeField: {},
   zipcode: {},
@@ -37,62 +39,62 @@ export default function FindAid() {
 
   return (
     <div className={classes.findAidContainer}>
-      <Paper className={classes.paper}>
-        <br></br>
-        <br></br>
-        <h1 style={{ marginTop: 0 }}>Find Aid</h1>
-        <br></br>
-        <div className={classes.zipcodeField}>
-          <h4>1. Enter your Zipcode: </h4>
-          <TextField
-            className={classes.zipcode}
-            label="Ex: 12345"
-            variant="outlined"
-            size="small"
-            value={zipValue}
-            onChange={(e) => setZipValue(e.target.value)}
-          />
-        </div>
-        <br></br>
-        <br></br>
-
-        <br></br>
-        <br></br>
-        <div className={classes.aidTypeField}>
-          <h4>2. What type of aid are you looking for?</h4>
-          <FormControl variant="outlined" className={classes.formControl}>
-            <InputLabel id="demo-simple-select-outlined-label">
-              Aid Type
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-outlined-label"
-              id="demo-simple-select-outlined"
-              value={aidValue}
-              onChange={(e) => setAidValue(e.target.value)}
-              label="Aid Type"
-            >
-              <MenuItem disabled value="  ">
-                <em>Search for</em>
-              </MenuItem>
-              <MenuItem value={"WiFi"}>WiFi Hotspots</MenuItem>
-              <MenuItem value={"Food"}>Food Banks</MenuItem>
-            </Select>
-          </FormControl>
-        </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <Button
-          className={classes.doneButton}
-          size="large"
-          variant="contained"
-          color="primary"
-        >
-          Done
-        </Button>
-        <br></br>
-        <br></br>
-      </Paper>
+      <form>
+        <Paper className={classes.paper}>
+          <br></br>
+          <br></br>
+          <h1 style={{ marginTop: 0 }}>Find Aid</h1>
+          <br></br>
+          <div className={classes.zipcodeField}>
+            <h4>1. Enter your Zipcode: </h4>
+            <TextField
+              className={classes.zipcode}
+              label="Ex: 12345"
+              variant="outlined"
+              size="small"
+              value={zipValue}
+              onChange={(e) => setZipValue(e.target.value)}
+            />
+          </div>
+          <br></br>
+          <br></br>
+          <br></br>
+          <div className={classes.aidTypeField}>
+            <h4>2. What type of aid are you looking for?</h4>
+            <FormControl variant="outlined" className={classes.formControl}>
+              <InputLabel id="demo-simple-select-outlined-label">
+                Aid Type
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-outlined-label"
+                id="demo-simple-select-outlined"
+                value={aidValue}
+                onChange={(e) => setAidValue(e.target.value)}
+                label="Aid Type"
+              >
+                <MenuItem disabled value="  ">
+                  <em>Search for</em>
+                </MenuItem>
+                <MenuItem value={"WiFi"}>WiFi Hotspots</MenuItem>
+                <MenuItem value={"Food"}>Food Banks</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Button
+            className={classes.doneButton}
+            size="large"
+            variant="contained"
+            color="primary"
+          >
+            Done
+          </Button>
+          <br></br>
+          <br></br>
+        </Paper>
+      </form>
     </div>
   );
 }
