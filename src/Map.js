@@ -14,7 +14,7 @@ class Map extends React.Component {
         };
       }
     componentDidMount() {
-    const map = new mapboxgl.Map({
+    var map = new mapboxgl.Map({
         container: this.mapContainer,
         style: 'mapbox://styles/jasoncd31/ckfudam961on819nxezb4jdtt',
         center: [this.state.lng, this.state.lat],
