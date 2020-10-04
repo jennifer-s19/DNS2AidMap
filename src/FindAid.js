@@ -36,8 +36,12 @@ export default function FindAid() {
   const [aidValue, setAidValue] = useState("");
   //need to check zipcode values
   const [show, toggleShow] = React.useState(false);
-
+  const testClick = () => {
+    //console.log(zipValue)
+    toggleShow(!show)
+  }
   return (
+    
     <div className={classes.findAidContainer}>
       <Paper className={classes.paper}>
         <br></br>
@@ -55,12 +59,15 @@ export default function FindAid() {
             onChange={(e) => setZipValue(e.target.value)}
           />
         </div>
+        <script>
+        </script>
+
         <br></br>
         <br></br>
 
         <br></br>
         <br></br>
-        <div className={classes.aidTypeField}>
+        {/* <div className={classes.aidTypeField}>
           <h4>2. What type of aid are you looking for?</h4>
           <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="demo-simple-select-outlined-label">
@@ -80,7 +87,7 @@ export default function FindAid() {
               <MenuItem value={"Food"}>Food Banks</MenuItem>
             </Select>
           </FormControl>
-        </div>
+        </div> */}
         <br></br>
         <br></br>
         <br></br>
@@ -89,11 +96,12 @@ export default function FindAid() {
           size="large"
           variant="contained"
           color="primary"
-          onClick={() => toggleShow(!show)}>
+          onClick={() => testClick()}>
           
           Done
         </Button>
-        {show && <Map />}
+        {show && <Map zipCode={zipValue}/> }
+
         <br></br>
         <br></br>
       </Paper>
