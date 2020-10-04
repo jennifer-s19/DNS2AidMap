@@ -7,6 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
+import Map from './Map.js'
 
 const useStyles = makeStyles((theme) => ({
   findAidContainer: {
@@ -34,6 +35,7 @@ export default function FindAid() {
   const [zipValue, setZipValue] = useState("");
   const [aidValue, setAidValue] = useState("");
   //need to check zipcode values
+  const [show, toggleShow] = React.useState(false);
 
   return (
     <div className={classes.findAidContainer}>
@@ -46,7 +48,7 @@ export default function FindAid() {
           <h4>1. Enter your Zipcode: </h4>
           <TextField
             className={classes.zipcode}
-            label="Ex: 12345"
+            
             variant="outlined"
             size="small"
             value={zipValue}
@@ -62,7 +64,7 @@ export default function FindAid() {
           <h4>2. What type of aid are you looking for?</h4>
           <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="demo-simple-select-outlined-label">
-              Aid Type
+              
             </InputLabel>
             <Select
               labelId="demo-simple-select-outlined-label"
@@ -87,9 +89,11 @@ export default function FindAid() {
           size="large"
           variant="contained"
           color="primary"
-        >
+          onClick={() => toggleShow(!show)}>
+          
           Done
         </Button>
+        {show && <Map />}
         <br></br>
         <br></br>
       </Paper>
