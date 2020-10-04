@@ -11,8 +11,7 @@ import "./AppHeader";
 import HomePage from "./HomePage";
 import FindAid from "./FindAid";
 import AboutUs from "./AboutUs";
-//import About from "./About";
-//import UserSubmission from "./UserSubmission";
+import UserSubmission from "./UserSubmission";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -113,9 +112,9 @@ export default function AppHeader() {
           <Route exact path="/about">
             <AboutUs />
           </Route>
-          {/* <Route exact path="/userSubmission">
+          <Route exact path="/userSubmission">
             <UserSubmission />
-          </Route> */}
+          </Route>
         </Switch>
       </div>
     </Router>
