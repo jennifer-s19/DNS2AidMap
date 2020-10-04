@@ -24,11 +24,12 @@ class Map extends React.Component {
     getCoords(zipCode) {
         //console.log(zipCodes)
         const lats = zipCodes.zipCodes.filter((item) => item.Zip == zipCode)[0];
-        this.state.lng = lats.Longitude
-        this.state.lat = lats.Latitude
-        console.log(this.state.lng)
-        console.log(this.state.lat)
-
+        if(typeof lats != 'undefined'){
+          this.state.lng = lats.Longitude
+          this.state.lat = lats.Latitude
+          console.log(this.state.lng)
+          console.log(this.state.lat)
+        }
     }
     componentDidMount() {
     var map = new mapboxgl.Map({
