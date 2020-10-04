@@ -7,9 +7,7 @@ import FindAid from "./FindAid";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-
     background: "linear-gradient(360deg, #AEF8FC 30%, #5CE1FE 90%)",
-
     width: "auto",
     length: "auto",
     fontWeight: 600,
