@@ -14,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
     background: "linear-gradient(360deg, #AEF8FC 30%, #5CE1FE 90%)",
     width: "auto",
     height: "100vH",
+    fontWeight: 600,
+	  fontSize: 25,
   },
   zipcodeField: {},
   zipcode: {},
@@ -43,6 +45,7 @@ export default function FindAid() {
   return (
     
     <div className={classes.findAidContainer}>
+      <form>
       <Paper className={classes.paper}>
         <br></br>
         <br></br>
@@ -105,6 +108,7 @@ export default function FindAid() {
         <br></br>
         <br></br>
       </Paper>
+      </form>
     </div>
   );
 }

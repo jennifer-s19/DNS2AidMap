@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Home() {
+export default function HomePage() {
   const classes = useStyles();
   return (
     <div className={classes.title}>
