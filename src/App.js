@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import './sidebar.css';
-import "./Marker.js";
 
 function App() {
   return (
@@ -9,7 +8,9 @@ function App() {
       <div>
         <div className="sidebar"> Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom: {this.state.zoom} <div/>
       </div>
-      <div ref={el => this.mapContainer = el} className="mapContainer" />
+      <div ref={el => this.mapContainer = el} 
+      
+      className="mapContainer" />
     </div>
   </div>
   );
