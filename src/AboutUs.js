@@ -69,13 +69,9 @@ export default function Home() {
           <br></br>
           2. Type your zipcode into the text box
           <br></br>
-          3. Select the type of aid you are looking for
+          3. Click "Done"
           <br></br>
-          4. Click "Done"
-          <br></br>
-          5. Click "Submit"
-          <br></br>
-          6. View the map suggestions!
+          4. View the map suggestions!
         </p>
         <h3 style={{ fontSize: "150%" }}>History</h3>
         <p>
