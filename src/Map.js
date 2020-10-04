@@ -1,9 +1,8 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
-import App from './App';
+import './Map.css'
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiamFzb25jZDMxIiwiYSI6ImNrZnNydTM3bzBwdjEyd25weWZ1eDdwNmIifQ.Wu020OyV0VPIxgxMO905Ig';
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 class Map extends React.Component {
     constructor(props) {
@@ -28,7 +27,14 @@ class Map extends React.Component {
     render() {
     return (
         <div>
-            <div ref={el => this.mapContainer = el} className="mapContainer"/>
+            <div ref={el => this.mapContainer = el} className="mapContainer" 
+            style={{
+            position: 'absolute',
+            top: 30,
+            bottom: 0,
+            width: '100%',
+            height: '90vh',
+     }}/>
         </div>
     )
     }
